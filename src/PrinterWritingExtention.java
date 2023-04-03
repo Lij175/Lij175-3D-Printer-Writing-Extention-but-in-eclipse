@@ -10,12 +10,11 @@ import java.util.Scanner;
 public class PrinterWritingExtention {
 	// test
 
-	public static String user = "1082635";
+	public static String user = "ejyst";
 
 	public static void main(String[] args) throws FileNotFoundException {
 		// files and stuff
 		File skeleton = new File("C:\\Users\\" + user + "\\eclipse-workspace\\3D Printer Writing Extention but in eclipse\\gcodes\\WitingBaseCode.gcode");
-								"C:\Users\ejyst\Documents\GitHub\Lij175-3D-Printer-Writing-Extention-but-in-eclipse\gcodes\WitingBaseCode.gcode"
 		File text_gcode = new File("C:\\Users\\" + user + "\\eclipse-workspace\\3D Printer Writing Extention but in eclipse\\gcodes\\text.gcode");
 		File text_txt = new File("C:\\Users\\" + user + "\\eclipse-workspace\\3D Printer Writing Extention but in eclipse\\gcodes\\text.txt");
 		// scanners
