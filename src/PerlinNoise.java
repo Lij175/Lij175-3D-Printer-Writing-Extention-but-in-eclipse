@@ -1,27 +1,44 @@
 
+
 public class PerlinNoise {
 	
-	public static double smoothness = 0.5;
-	public static int size = 10;
-	public static double[][] NoiseMap = new double [size][size];
-	
 	public static void main(String[] args) {
+		double smoothness = 0.5;
+		int size = 10;
+		double[][] PerlinMap = new double [size][size];
+		double[][][] Vectors = new double [size][size][2];
+		
 		for(int i = 0; i < size; i++){
 			for(int j = 0; j < size; j++) {
-				boolean joel = Math.random() > smoothness;
-				if(joel) {
-					NoiseMap[i][j] = 1;
-				}
+				//(r cos(i * 2pi/n) + h, r sin(i * 2pi/n) + k)
+				int rand = (int)Math.random() * 50;
+				double x = Math.cos(rand * Math.PI / 25);
+				
+				rand = (int)Math.random() * 50;
+				double y = Math.sin(rand * Math.PI / 25);
+				
+				Vectors[i][j] = new double[] {x,y};
 			}
 		}
 		
-		printNoiseMap();
+		double[] input = new double[] {Math.random(),  Math.random()};
+		
+		// fill map with random 1, 0
+		for(int i = 0; i < size; i++){
+			for(int j = 0; j < size; j++) {
+				PerlinMap[i][j] = 1;
+			}
+		}
+		
+		
+		printNoiseMap(PerlinMap);
 	} 
 	
-	public static void printNoiseMap() {
+	public static void printNoiseMap(double[][] perlinMap) {
+		int size = perlinMap.length;
 		for(int i = 0; i < size; i++){
 			for(int j = 0; j < size; j++){
-				System.out.print(NoiseMap[i][j] + "  ");
+				System.out.print(perlinMap[i][j] + "  ");
 			}
 			System.out.println();
 			System.out.println();
